@@ -1,0 +1,14 @@
+{
+  "name": "oreilly-mastering-react-tdd-appointments",
+  "version": "1.0.0",
+  "description": "Oreilly Mastering React Test Driven Development - Appointments",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Brian Liang",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
+}
