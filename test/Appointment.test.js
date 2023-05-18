@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { act } from "react-dom/test-utils";
-import { Appointment } from "../src/Appointment";
+import { Appointment, AppointmentsDayView } from "../src/Appointment";
 
 describe("Appointment", () => {
     let container;
@@ -54,6 +54,26 @@ describe("AppointmentsDayView", () => {
                 "div#appointmentsDayView"
             )
         ).not.toBeNull()
+    })
+
+    it("renders an ol element to display appointments", () => {
+        render(<AppointmentsDayView appointments={[]}/>)
+        expect (
+            document.querySelector("ol")
+        ).not.toBeNull()
+    })
+
+    it("renders an li for each appointment", () => {
+        const today = new Date()
+        const twoAppointments = [
+            {startsAt: today.setHours(12, 0)},
+            {startsAt: today.setHours(13, 0)}
+        ]
+        render(
+            <AppointmentsDayView appointments={twoAppointments}/>
+        )
+        const listChildren = document.querySelector("ol > li")
+        expect(listChildren).toHaveLength(2)
     })
 
 
